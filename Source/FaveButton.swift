@@ -89,7 +89,7 @@ open class FaveButton: UIButton {
         applyInit()
     }
     
-    func updateSelected(_ selected: Bool) {
+    public func updateSelected(_ selected: Bool) {
         self.isSelected = selected
         let color  = selected ? selectedColor : normalColor
         faveIcon.fillColor(color)
