@@ -79,7 +79,6 @@ extension FaveIcon{
         }
         
         iconLayer = Init(CAShapeLayer()){
-            $0.fillColor = iconColor.cgColor
             $0.path      = UIBezierPath(rect: CGRect(origin: shapeOrigin, size: contentRegion.size)).cgPath
             $0.mask      = iconMask
         }

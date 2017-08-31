@@ -65,13 +65,11 @@ open class FaveButton: UIButton {
     fileprivate var selectedFaveIconImage: UIImage?
     fileprivate var faveIcon: FaveIcon!
     
-    
     override open var isSelected: Bool{
         didSet{
             animateSelect(self.isSelected, duration: Const.duration)
         }
     }
-    
     convenience public init(frame: CGRect, faveIconNormal: UIImage?, faveIconSelected: UIImage?) {
         self.init(frame: frame)
         
