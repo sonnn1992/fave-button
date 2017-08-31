@@ -177,11 +177,7 @@ extension FaveButton{
         guard case let delegate as FaveButtonDelegate = self.delegate else{
             return
         }
-        
-        let delay = DispatchTime.now() + Double(Int64(Double(NSEC_PER_SEC) * Const.duration)) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: delay){
-            delegate.faveButton(sender, didSelected: sender.isSelected)
-        }
+        delegate.faveButton(sender, didSelected: sender.isSelected)
     }
 }
 
