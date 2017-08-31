@@ -79,7 +79,6 @@ extension FaveIcon{
         }
         
         iconLayer = Init(CAShapeLayer()){
-            $0.fillColor = iconColor.cgColor
             $0.path      = UIBezierPath(rect: CGRect(origin: shapeOrigin, size: contentRegion.size)).cgPath
             $0.mask      = iconMask
         }
@@ -93,10 +92,6 @@ extension FaveIcon{
 extension FaveIcon{
     
     func fillColor(_ color: UIColor) {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        iconLayer.fillColor = color.cgColor
-        CATransaction.commit()
     }
     
     func animateSelect(_ isSelected: Bool = false, fillColor: UIColor, duration: Double = 0.5, delay: Double = 0){
@@ -107,7 +102,6 @@ extension FaveIcon{
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         iconMask.contents = isSelected ? self.selectedIconImage.cgImage : self.iconImage.cgImage
-        iconLayer.fillColor = fillColor.cgColor
         CATransaction.commit()
         
         let selectedDelay = isSelected ? delay : 0
