@@ -65,11 +65,6 @@ open class FaveButton: UIButton {
     fileprivate var selectedFaveIconImage: UIImage?
     fileprivate var faveIcon: FaveIcon!
     
-    override open var isSelected: Bool{
-        didSet{
-            animateSelect(self.isSelected, duration: Const.duration)
-        }
-    }
     convenience public init(frame: CGRect, faveIconNormal: UIImage?, faveIconSelected: UIImage?) {
         self.init(frame: frame)
         
@@ -94,6 +89,7 @@ open class FaveButton: UIButton {
     public func updateSelected(_ selected: Bool) {
         let color  = isSelected ? selectedColor : normalColor
         self.faveIcon.updateSelected(selected, fillColor: color)
+        self.isSelected = selected
     }
 }
 
@@ -173,6 +169,7 @@ extension FaveButton{
     
     func toggle(_ sender: FaveButton){
         sender.isSelected = !sender.isSelected
+        animateSelect(self.isSelected, duration: Const.duration)
         
         guard case let delegate as FaveButtonDelegate = self.delegate else{
             return
