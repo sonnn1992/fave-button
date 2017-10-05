@@ -90,7 +90,7 @@ open class FaveButton: UIButton {
         let color  = isSelected ? selectedColor : normalColor
         self.isSelected = selected
         if animated {
-            self.faveIcon.animateSelect(isSelected, fillColor: color)
+            animateSelect(self.isSelected, duration: Const.duration)
         } else {
             self.faveIcon.updateSelected(selected, fillColor: color)
         }
