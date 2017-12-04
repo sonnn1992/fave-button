@@ -87,7 +87,7 @@ open class FaveButton: UIButton {
     }
     
     public func updateSelected(_ selected: Bool, animated: Bool = false) {
-        let color  = isSelected ? selectedColor : normalColor
+        let color  = selected ? selectedColor : normalColor
         self.isSelected = selected
         if animated {
             animateSelect(self.isSelected, duration: Const.duration)
